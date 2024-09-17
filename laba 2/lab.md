@@ -30,7 +30,7 @@ print('123')
 print(1.23)
 ```
 ### Результат.
-![Меню](laba 2/pic/л1.png)
+![Меню]((https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/%D0%BB1.png))
 
 ## Выводы
 
