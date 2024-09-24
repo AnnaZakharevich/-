@@ -54,7 +54,7 @@ print (3 + 7.04 + 1 + 2.33)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/l2.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l2.png)
 
 ## Выводы
 
@@ -73,7 +73,7 @@ pront one + to)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/l3.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l3.png)
 
 ## Выводы
 
@@ -92,7 +92,7 @@ print (str(three))
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/l4.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l4.png)
 
 ## Выводы
 
@@ -109,7 +109,7 @@ print (one, two, three)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/l5.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l5.png)
 
 ## Выводы
 
@@ -126,7 +126,7 @@ print (*Нахождение остатка от деления:", а % b)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/l6.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l6.png)
 
 ## Выводы
 
@@ -141,7 +141,7 @@ print (Line * 6)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/l7.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l7.png)
 
 ## Выводы
 
@@ -156,7 +156,7 @@ print(sentence.count('o'))
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/l8.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l8.png)
 
 ## Выводы
 
@@ -169,7 +169,7 @@ print(sentence.count('o'))
 print('Hello\nWorld')
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/l9.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l9.png)
 
 ## Выводы
 
@@ -185,7 +185,7 @@ print (sentence[:5])
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/l10.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l10.png)
 
 ## Выводы
 
@@ -200,7 +200,7 @@ print(bool(x))
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/c1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s1.png)
 
 ## Выводы
 
@@ -215,7 +215,7 @@ print(x, y, z)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/c2.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s2.png)
 
 ## Выводы
 
@@ -230,7 +230,7 @@ print(a)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/c3.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s3.png)
 
 ## Выводы
 
@@ -245,7 +245,8 @@ print(a*5)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/c4.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s4.1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s4.2.png)
 
 ## Выводы
 
@@ -260,79 +261,12 @@ print("Сегодня", d, m, y, ", Всего хорошего!")
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/c5.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s5.png)
 
 ## Выводы
 
 В данном коде показывается вывод коментариев совместно с переменными
   
-## Самостоятельная работа №6
-### В предложении 'Hello World' вставьте "ту' между двумя словами. Выведите полученное предложение в консоль в одну строку. Программа должна занимать не более двух строк редактора кода.
-
-```python
-x = 'hello my world'
-print (x)
-
-```
-### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/c6.png)
-
-## Выводы
-
-В данном коде показана работа со строковыми переменными
-  
-## Самостоятельная работа №7
-### Узнайте длину предложения 'Hello World', результат выведите в консоль. Программа должна занимать не более двух строк редактора кода.
-
-```python
-l = 'Hello world'
-print (len(l))
-
-```
-### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/c7.png)
-
-## Выводы
-
-В данном коде показана работа функции len
-  
-## Самостоятельная работа №8
-### Переведите предложение 'HELLO WORLD' в нижний регистр. Программа должна занимать не более двух строк редактора кода.
-
-```python
-l = str("HELLO WORLD")
-print (l.lower())
-
-```
-### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/c8.png)
-
-## Вывод 
-
-в данном коде реализован перевод строковой переменной в нижний регистр с помощью операции lower
-  
-## Самостоятельная работа №9
-### Перемножить 2 числа
-
-```python
-a, b = 2, 5
-print (a*b)
-
-```
-### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/c9.png)
-
-  
-## Самостоятельная работа №10
-### Преобразовать число в символ ASCII
-
-```python
-l=92
-print(chr(l))
-
-```
-### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%202/pic/c10.png)
 
 
 ## Общие выводы по теме
