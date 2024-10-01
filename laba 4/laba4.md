@@ -26,44 +26,34 @@
 
 
 ```python
-one = int(input('ВВедите значение первой переменной: '))
-two = int(input('Введите значение второй переменной: '))
-if one >= two:
-    print('Выполняется')
-else:
-    print('Не выполняется')
+def main():
+print (2+2)
+ if __name__ == '__main__':
+main ()
 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l1.png)
 
 ## Выводы
 
-В данном коде выводятся три строки с использованием функции `print()`. Каждая строка содержит разные значения:
-
-1. `print(123)`: Выводится целое число 123. Это число не взаимодействует со строковыми операциями и выводится как есть.
-
-2. `print('123')`: Выводится строка '123', так как она заключена в одинарные кавычки. В этом случае это текстовая строка, а не число.
-
-3. `print(1.23)`: Выводится число с плавающей точкой 1.23. Так же, как и в первом случае, оно выводится как числовое значение.
+В данном коде выводятся три строки с использованием функции `print()`. Каждая строка содержит разные значения
 
 ## Лабораторная работа №2
 ### Напишите программу, которая будет определять значения переменной меньше 0, больше 0 и меньше 10 или больше 10. Это нужно реализовать при помощи одной переменной, значение которой будет вводится через консоль, а также при помощи конструкций if, elif, else.
 
 ```python
-one = int(input('ВВедите значение переменной: '))
-if one < 0:
-    print('Переменная меньше 0')
-elif 0 < one < 10:
-    print('Переменная больше 0 и меньше 10')
-else:
-    print('Переменная больше 10')
+def main():
+return 2+2
+
+if __name__ == '_main__':
+print (main())
 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l2.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l2.png)
 
 ## Выводы
 
@@ -74,17 +64,20 @@ else:
 
 
 ```python
-numbers = [1, 3, 4, 6, 8, 9]
-value = int(input('Введите значение переменной: '))
-if value in numbers:
-    print('Переменная есть в данном массиве')
-else:
-    print('Переменной нет в этом массиве')
+def main (one, two):
+result = one + two
+return result
+
+for i in range (5):
+x = 1
+y = 10
+answer = main (x, y) # x = one, y = two
+print (answer)
 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l3.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l3.png)
 
 ## Выводы
 
@@ -95,20 +88,20 @@ else:
 
 
 ```python
-numbers = [1, 3, 4, 6, 8, 9, 15, 16, 73, 321, 322]
-value = int(input('Введите значение переменной: '))
-if value in numbers:
-    if value % 2 ==0:
-        print('Переменная четная и есть в массиве')
-    else:
-        print('Переменная нечетная и есть в массиве')
-else:
-    print(f"Переменной нет в массиве и она равна {value}")
-
+def main(x, *args):
+one = x # 10
+two = sum(args) # 0, 1, 2, -1, 0, -1, 1, 2
+three = float(Len(args)) # длинна кортежа args
+# пример работы операций над параметрами функции
+print (f"one={one}\ntwo={two} \nthree={three}")
+return x + sum(args) / float(Len(args))
+if __name__ == '__main__':
+result = main(10, 0, 1, 2, -1, 0, -1, 1, 2)
+print (f" (nresult={result)")
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l4.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l4.png)
 
 ## Выводы
 
@@ -119,23 +112,24 @@ else:
 
 
 ```python
-for i in range(10):
-    print('i = ', i)
-    if i == 0:
-        i+=2
-    if i == 1:
-        continue
-    if i == 2 or i == 3:
-        print('Переменная раввна 2 или 3')
-    elif i in [4, 5, 6]:
-        print('Переменная равна 4, 5 или 6')
-    else:
-        break
+def main(**kwargs) :
+for i in kwargs.items):
+print(1[0], i[1])
+print # добавляет пустую строку в консоль
+for key in kwargs:
+print (f"{key} = {kwargs[key]}")
+if __name__ == '__main__':
+# обычный вызов функции, принимающий кортеж **kwargs, как параметр
+z=[2, 3,
+main (x=[1, 2, 3], y=[3, 3, 01, z=[2, 3, 01, q=[3, 3, 01, w=[3, 3, 0])
+print() # добавляет пустую строку в консоль
+# также возможно использовать в виде аргумента для функции уже готовый # словарь, но приписав в начале **
+main(**{'x': [1, 2, 3], 'y': [3, 3, 01})
 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l5.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l5.png)
 
 ## Выводы
 
@@ -146,19 +140,21 @@ for i in range(10):
 
 
 ```python
-string = 'Привет всем изучающим Python!'
-value = input()
-for i in string:
-    if i == value:
-        index = string.find(value)
-        print(f"Буква '{value}' есть в строке под {index} индексом")
-        break
-    else:
-        print(f"Буквы '{value}' нет в указаной строке")
+def main (**kwargs):
+"*"Функция работающая с **kwargs."" п
+for 1, jin kwargs.items):
+print(f" {it. Mean = (mean(j)}")
+
+def mean (data) :
+"•"Функция подсчета среднего арифметического. "и и
+return sum(data) / float(len(data))
+if -name_=='__main__':
+main (x=[1, 2, 3], y=[3, 3, 01)
+
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l6.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l6.png)
 
 ## Выводы
 
@@ -168,15 +164,22 @@ for i in string:
 ### Напишите программу, в которой вы наглядно посмотрите, как работает цикл for проходя в обратном порядке, то есть, к примеру не от 0 до 10, а от 10 до 0. В уже готовой программе показано вычитание из 100, а вам во время реализации программы будет необходимо придумать свой вариант применения обратного цикла.
 
 ```python
-value = 100
-for i in range (10, -1, -1):
-    value-=i
-    print(i, value)
+
+def say_hello():
+    print('Hello Mihail Alecksandrovich')
+
+```
+
+```python
+
+from triangle_area import say_hello
+if __name__ == '__main__':
+    say_hello()
 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l7.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l7.png)
 
 ## Выводы
 
@@ -187,20 +190,20 @@ for i in range (10, -1, -1):
 
 
 ```python
-value = 0
-while value < 100:
-    if value == 0:
-        value+=10
-    elif value // 5 > 2:
-        value *= 5
-    else:
-        value -= 5
-    print(value)
+
+import math
+def main():
+    value = int(input('Введите значение: '))
+    print (math.sqrt (value) )
+    print (math.sin (value))
+    print(math.cos(value))
+if __name__ == '__main__':
+    main()
 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l8.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l8.png)
 
 ## Выводы
 
@@ -210,18 +213,28 @@ while value < 100:
 ### Напишите программу с использованием вложенных циклов и одной проверкой внутри них. Самое главное, не забудьте, что нельзя использовать одинаковые имена итерируемых переменных, когда вы используете вложенные пиклы.
 
 ```python
-value = 0
-for i in range(10):
-    for j in range(10):
-        if i!= j:
-            value += j
-        else:
-            pass
-print(value)
+from datetime import datetime as dt # dt теперь равно datetime
+from datetime import timedelta as td # td теперь равно timedelta
+
+def main():
+    print(
+        f"Сегодня {dt.today().date()}. "
+        f"День недели - {dt.today().isoweekday()}"
+    )
+    n = int(input( 'Введите количество дней: '))
+    today = dt.today()
+    result = today + td (days=n)
+    print(
+        f"Через {n} дней будет {result.date()}. "
+        f"День недели - {result.isoweekday()}"
+    )
+if __name__ == '__main__':
+    main()
+
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l9.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l9.png)
 
 ## Выводы
 
@@ -231,21 +244,26 @@ print(value)
 ### Напишите программу с использованием flag, которое будет определять есть ли нечетное число в массиве. В данной задаче flag выступает в роли индикатора встречи нечетного числа в исходном
 
 ```python
-even_array = [2, 4, 6, 8, 9]
-flag = False
-for value in even_array:
-    if value % 2 == 1:
-        flag = True
+global result
 
-if flag is True:
-    print('В массиве есть нечетное число')
-else:
-    print('В массиве все числа четные')
-
+def rectangle():
+    a = float(input("Ширина: "))
+    b = float (input ("Высота: "))
+    global result
+    result = a * b
+def triangle():
+    a = float(input ("Основание: "))
+    h = float(input ("Высота: "))
+    global result
+    result = 0.5 * a * h
+figure = input("1-прямоугольник, 2-треугольник: ")
+if figure == '1': rectangle()
+elif figure == '2': triangle()
+print(f"Площадь: {result}")
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/l10.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l10.png)
 
 ## Выводы
 
@@ -256,15 +274,30 @@ else:
 
 
 ```python
-for i in range (7):
-	i*=5
-i+=1
-print (i)
+from datetime import datetime  # Импортируем класс datetime из модуля datetime для работы с датой и временем
+from math import sqrt  # Импортируем функцию sqrt из модуля math для вычисления квадратного корня
+
+def main(**kwargs):  # Определяем функцию main, которая принимает произвольное количество именованных аргументов
+    for key in kwargs.items():  # Итерируем по парам ключ-значение в kwargs
+        result = sqrt(key[1][0] ** 2 + key[1][1] ** 2)  # Вычисляем квадратный корень суммы квадратов координат (питагореева теорема)
+        print(result)  # Печатаем результат
+
+if __name__ == "__main__":  # Условие, проверяющее, запущен ли скрипт как основная программа
+    start_time = datetime.now()  # Сохраняем текущее время перед началом выполнения программы
+    main(  # Вызываем функцию main с именованными аргументами
+        one=[10, 3],  # Передаем первый аргумент
+        two=[5, 4],  # Передаем второй аргумент
+        three=[15, 13],  # Передаем третий аргумент
+        four=[93, 53],  # Передаем четвертый аргумент
+        five=[133, 15]  # Передаем пятый аргумент
+    )
+    time_costs = datetime.now() - start_time  # Вычисляем время выполнения программы
+    print(f"Время выполнения программы - {time_costs}")  # Печатаем время выполнения программы
+
 
 
 ```
-### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s1.png)
+
 
 ## Выводы
 
@@ -274,14 +307,27 @@ print (i)
 ### Напишите программу, которая фразу «Hello World» выводит в обратном порядке, и каждая буква находится в одной строке консоли.
 
 ```python
-l='Hello world'
-for i in range (12, 1, -1):
-    print (l[i-2:i-1])
+
+import random
+
+def бросить_кубик():
+    значение = random.randint(1, 6)  # Генерируем случайное число от 1 до 6
+    print(f"Кубик: {значение}")  # Выводим значение кубика
+
+    if значение in (5, 6):
+        print("Вы победили")
+    elif значение in (3, 4):
+        бросить_кубик()  # Рекурсивный вызов функции
+    else:  # значение в {1, 2}
+        print("Вы проиграли")
+
+if __name__ == "__main__":
+    бросить_кубик()  # Точка входа
 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s2.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/s2.png)
 
 ## Выводы
 
@@ -292,20 +338,20 @@ for i in range (12, 1, -1):
 
 
 ```python
-a= int(input())
-if (a<0 or a>10):
-    print ("Число не подходит")
-if (a>0 and a<=3):
-    print ("число в диапозоне от 0 до 3")
-if (a>3 and a<=6):
-    print ("число в диапозоне от 3 до 6")
-if (a>6 and a<11):
-    print ("число в диапазоне от 6 до 10")
+import datetime
+import time
+
+# Цикл, который будет выполняться 5 секунд
+for _ in range(5):
+    текущее_время = datetime.datetime.now()  # Получаем текущее время
+    print(текущее_время.strftime("%H:%M:%S"))  # Форматируем и выводим время
+    time.sleep(1)  # "Усыпаем" программу на 1 секунду
+
 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s3.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/s3.png)
 
 ## Выводы
 
@@ -316,34 +362,22 @@ if (a>6 and a<11):
 
 
 ```python
-a = str(input())
-l=len(a)
-lo=a.lower()
-print("Предложение: ", a)
-print ("Длина предложения ", l)
-print ("Предложение в нижнем регистре", lo)
-print ("количество букв a = ", a.find('a', 1, l))
-print ("количество букв e = ", a.find('e', 0, l))
-print ("количество букв i = ", a.find('i', 0, l))
-print ("количество букв o = ", a.find('o', 0, l))
-print ("количество букв u = ", a.find('u', 0, l))
-print ("Замена ugly на beauty", a.replace('ugly', 'beauty'))
-n=lo.startswith('the')
-k=lo.endswith('end')
-if (n==True and k==True):
-    print ("предложение начинается на the и заканчивается на end")
-elif (n==True and k==False):
-    print ("Предложение начинается на The, но не заканчивается на end")
-elif (n==False and k==True):
-    print ("Предложение заканчивается на end, но не начинается на The")
-else:
-    print ("Предложение не начинается на The и не заканчивается на end")
+def среднее_арифметическое(*args):
+    # Проверяем, были ли переданы аргументы
+    if len(args) == 0:
+        return 0  # Если аргументов нет, возвращаем 0
+    # Суммируем все аргументы и делим на их количество
+    return sum(args) / len(args)
 
+if __name__ == "__main__":
+    # Пример использования функции
+    числа = (1, 2, 3, 4, 5)  # Можно изменить аргументы по желанию
+    среднее = среднее_арифметическое(*числа)
+    print(f"Среднее арифметическое: {среднее}")
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s4.1.png)
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s4.2.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/s4.png)
 
 ## Выводы
 
@@ -354,17 +388,48 @@ else:
 
 
 ```python
-while counter != 10:
-    if counter in values:
-        
-        print(string + memory)  
-        print(string)
-    counter += 1
+import math
+
+def площадь_треугольника(a, b, c):
+    # Проверка возможности существования треугольника
+    if a + b <= c or a + c <= b or b + c <= a:
+        raise ValueError("Такого треугольника не существует")
+    
+    # Полупериметр
+    p = (a + b + c) / 2
+    # Площадь по формуле Герона
+    площадь = math.sqrt(p * (p - a) * (p - b) * (p - c))
+    return площадь
+
+
+```
+
+```python
+from triangle_area import площадь_треугольника
+
+def main():
+    print("Вычисление площади треугольника по формуле Герона.")
+
+    # Получаем длины сторон у пользователя
+    try:
+        a = float(input("Введите длину первой стороны (a): "))
+        b = float(input("Введите длину второй стороны (b): "))
+        c = float(input("Введите длину третьей стороны (c): "))
+
+        # Вычисляем площадь
+        площадь = площадь_треугольника(a, b, c)
+        print(f"Площадь треугольника с длинами сторон {a}, {b}, {c} составляет: {площадь:.2f}")
+
+    except ValueError as e:
+        print(e)
+
+if __name__ == "__main__":
+    main()
 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%203/pic%203/s5.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/s5.png)
 
 ## Выводы
 
