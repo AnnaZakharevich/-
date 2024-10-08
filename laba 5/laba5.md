@@ -43,7 +43,7 @@ print('3', set_1 - set_2)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l1.png)
 
 ## Выводы
 
@@ -80,8 +80,8 @@ print(a)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l2.png)
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l2.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l2.1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l2.2.png)
 
 ## Выводы
 
@@ -104,7 +104,8 @@ print(replace([1, 2, 3, 4, 5]))
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l3.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l3.png)
+
 
 ## Выводы
 
@@ -121,7 +122,8 @@ print(a[2:6])
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l4.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l4.png)
+
 
 ## Выводы
 
@@ -142,7 +144,8 @@ print(useless([333, 15, 52, 6, 3, 17]))
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l5.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l5.png)
+
 
 ## Выводы
 
@@ -164,7 +167,8 @@ print('Иван - ', ivan)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l6.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l6.png)
+
 
 ## Выводы
 
@@ -188,7 +192,8 @@ print('Отсортированный список без наименьшего
 
 
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l7.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l7.png)
+
 
 ## Выводы
 
@@ -218,7 +223,8 @@ if __name__ == '__main__':
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l8.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l8.png)
+
 
 ## Выводы
 
@@ -253,7 +259,8 @@ if __name__ == '__main__':
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l9.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l9.png)
+
 
 ## Выводы
 
@@ -271,7 +278,8 @@ print(my_list[::-1])
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/l10.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l10.png)
+
 
 ## Выводы
 
@@ -323,6 +331,8 @@ print(f"Работник номер {most_visits_worker[0]} посетил ре�
 
 
 ```
+### Результат.
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s1.png)
 
 
 ## Выводы
@@ -366,7 +376,7 @@ print(f"Все результаты начиная с 10: {results_above_ten}")
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/s2.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s2.png)
 
 ## Выводы
 
@@ -415,7 +425,7 @@ print(f"Площадь треугольника с максимальными с
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/s3.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s3.png)
 
 ## Выводы
 
@@ -462,7 +472,7 @@ print(f"Обновленный список оценок 3: {updated_grades3}")
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/s4.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s4.png)
 
 ## Выводы
 
@@ -527,7 +537,7 @@ print(set_3)
 
 
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%204/pic/pic/s5.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s5.png)
 
 ## Выводы
 
