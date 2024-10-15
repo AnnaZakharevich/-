@@ -40,7 +40,7 @@ print(key, access)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%206/pic/l1.jpg)
 
 ## Выводы
 
@@ -70,7 +70,7 @@ pprint(my_dict)
 
 
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l2.1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%206/pic/l2.jpg)
 
 ## Выводы
 
@@ -90,7 +90,7 @@ print(list(result))
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l3.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%206/pic/l3.jpg)
 
 
 ## Выводы
@@ -113,7 +113,7 @@ personal_info(*bob)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l4.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%206/pic/l4.jpg)
 
 
 ## Выводы
@@ -139,7 +139,7 @@ if __name__ == '__main__':
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l5.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%206/pic/l5.jpg)
 
 
 ## Выводы
@@ -170,7 +170,7 @@ print("Кортеж:", numbers_tuple)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%206/pic/s1.jpg)
 
 
 ## Выводы
@@ -215,7 +215,7 @@ print(remove_first_occurrence((2, 4, 6, 6, 4, 2), 9))  # Ожидается (2, 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s2.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%206/pic/s2.jpg)
 
 ## Выводы
 
@@ -261,7 +261,7 @@ print(result)  # Вывод результата
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s3.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%206/pic/s3.jpg)
 
 ## Выводы
 
@@ -313,7 +313,7 @@ print(extract_subtuple((1, 2, 8, 5, 1, 2, 9), 8))        # Ожидаемый р
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s4.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%206/pic/s4.jpg)
 
 ## Выводы
 
@@ -343,7 +343,7 @@ print(get_unique_sorted_tuple((1, 1, 1, 1, 1)))               # Ожидаемы
 
 
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s5.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%206/pic/s5.jpg)
 
 ## Выводы
 
