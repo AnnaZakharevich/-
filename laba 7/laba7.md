@@ -35,7 +35,7 @@ f.close()
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/l1.jpg)
 
 ## Выводы
 
@@ -59,7 +59,7 @@ f.close()
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l2.1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/l2.jpg)
 
 ## Выводы
 
@@ -78,7 +78,7 @@ f.close ()
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l3.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/l3.jpg)
 
 
 ## Выводы
@@ -97,7 +97,7 @@ print (1. readlines ())
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l4.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/l4.jpg)
 
 
 ## Выводы
@@ -118,7 +118,7 @@ print (line)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l5.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/l5.jpg)
 
 
 ## Выводы
@@ -139,7 +139,7 @@ print (result)
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l6.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/l6.jpg)
 
 
 ## Выводы
@@ -164,7 +164,7 @@ print ('Done! ' )
 
 
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l7.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/l7.jpg)
 
 
 ## Выводы
@@ -193,7 +193,7 @@ _docs ("/Users/1/OneDrive/Рабочий стол/3 курс/Пи Панов/Л�
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l8.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/l8.jpg)
 
 
 ## Выводы
@@ -239,7 +239,7 @@ print (longest_words (' input.txt') )
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l9.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/l9.jpg)
 
 
 ## Выводы
@@ -273,7 +273,7 @@ writer.writerow([line, datetime.datetime.now()-second, datetime.datetime time.sl
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l10.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/l10.jpg)
 
 
 ## Выводы
@@ -314,7 +314,7 @@ print(f'Самое часто встречающееся слово: "{most_comm
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/s1.jpg)
 
 
 ## Выводы
@@ -392,7 +392,8 @@ if __name__ == "__main__":
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s2.png)
+
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/s2.jpg)
 
 ## Выводы
 
@@ -457,7 +458,8 @@ if __name__ == "__main__":
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s3.png)
+
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/s3.jpg)
 
 ## Выводы
 
@@ -523,7 +525,8 @@ if __name__ == "__main__":
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s4.png)
+
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/s4.jpg)
 
 ## Выводы
 
@@ -580,7 +583,8 @@ if __name__ == "__main__":
 
 
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/s5.png)
+
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%207/pic/s5.jpg)
 
 ## Выводы
 
