@@ -327,6 +327,67 @@ print(f'Самое часто встречающееся слово: "{most_comm
 
 ```python
 
+import json
+import os
+
+# Имя файла для хранения данных о расходах
+FILENAME = 'expenses.json'
+
+# Функция для добавления расхода
+def add_expense(expense):
+    if os.path.exists(FILENAME):
+        with open(FILENAME, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+    else:
+        data = []
+
+    data.append(expense)
+
+    with open(FILENAME, 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+
+# Функция для отображения всех расходов
+def show_expenses():
+    if os.path.exists(FILENAME):
+        with open(FILENAME, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            for i, expense in enumerate(data, start=1):
+                print(f"{i}. Дата: {expense['date']}, Сумма: {expense['amount']}, Описание: {expense['description']}")
+    else:
+        print("Нет записей о расходах.")
+
+def main():
+    while True:
+        print("\n1. Добавить расход")
+        print("2. Показать все расходы")
+        print("3. Выход")
+        
+        choice = input("Выберите действие: ")
+        
+        if choice == '1':
+            date = input("Введите дату (YYYY-MM-DD): ")
+            amount = float(input("Введите сумму: "))
+            description = input("Введите описание: ")
+            expense = {
+                'date': date,
+                'amount': amount,
+                'description': description
+            }
+            add_expense(expense)
+            print("Расход добавлен!")
+        
+        elif choice == '2':
+            print("\nСписок расходов:")
+            show_expenses()
+        
+        elif choice == '3':
+            break
+        
+        else:
+            print("Неверный выбор. Пожалуйста, выберите снова.")
+
+if __name__ == "__main__":
+    main()
 
 
 ```
@@ -338,44 +399,60 @@ print(f'Самое часто встречающееся слово: "{most_comm
 В данном коде реализована возможность присвоения значений нескольким переменным в одной строке
   
 ## Самостоятельная работа №3
-### Напиши программу на python. Преподаватель по математике придумал странную задачку. У вас есть три списка с элементами, каждый элемент которых - длина стороны треугольника, ваша задача найти площади двух треугольников, составленные из максимальных и минимальных элементов полученных списков. Результатом выполнения задачи будет: листинг кода, и вывод в консоль, в котором будут указаны два этих значения.
-Три списка:
-one = [12, 25, 3, 48, 71]
-two = [5, 18, 40, 62, 98]
-three = [4, 21, 37, 56, 84]
+### Имеется файл input.txt с текстом на латинице. Напишите программу, которая выводит следующую статистику по тексту: количество букв латинского алфавита; число слов; число строк.
+• Текст в файле:
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+• Ожидаемый результат:
+Input file contains:
+108 letters
+20 words
+4 lines
+
 
 
 ```python
 
-import math
+def get_text_statistics(filename):
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            text = file.readlines()
 
-# Три списка с длинами сторон треугольников
-one = [12, 25, 3, 48, 71]
-two = [5, 18, 40, 62, 98]
-three = [4, 21, 37, 56, 84]
+        # Инициализация счетчиков
+        letter_count = 0
+        word_count = 0
+        line_count = len(text)
 
-# Функция для вычисления площади треугольника по формуле Герона
-def triangle_area(a, b, c):
-    # Полупериметр
-    s = (a + b + c) / 2
-    # Площадь с помощью формулы Герона
-    return math.sqrt(s * (s - a) * (s - b) * (s - c))
+        # Обработка строк
+        for line in text:
+            # Удаление лишних пробелов и специального символа новой строки
+            line = line.strip()
+            letters_in_line = sum(c.isalpha() for c in line)  # Подсчет литер
+            words_in_line = len(line.split())  # Подсчет слов
 
-# Находим минимальные и максимальные элементы из списков
-min_one = min(one)
-max_one = max(one)
-min_two = min(two)
-max_two = max(two)
-min_three = min(three)
-max_three = max(three)
+            letter_count += letters_in_line
+            word_count += words_in_line
 
-# Вычисляем площади треугольников
-area_min = triangle_area(min_one, min_two, min_three)
-area_max = triangle_area(max_one, max_two, max_three)
+        # Возврат статистики в виде словаря
+        return {
+            'letters': letter_count,
+            'words': word_count,
+            'lines': line_count
+        }
 
-# Вывод результатов
-print(f"Площадь треугольника с минимальными сторонами: {area_min:.2f}")
-print(f"Площадь треугольника с максимальными сторонами: {area_max:.2f}")
+def main():
+    filename = 'input.txt'
+    statistics = get_text_statistics(filename)
+    
+    print(f"Input file contains:")
+    print(f"{statistics['letters']} letters")
+    print(f"{statistics['words']} words")
+    print(f"{statistics['lines']} lines")
+
+if __name__ == "__main__":
+    main()
 
 
 ```
@@ -387,42 +464,61 @@ print(f"Площадь треугольника с максимальными с
 В данном коде показана возможность присвоения значения переменной с клавиатуры
   
 ## Самостоятельная работа №4
-### Напиши программу на python. Никто не любит получать плохие оценки, поэтому Борис решил это исправить. Допустим, что все оценки студента за семестр хранятся в одном списке. Ваша задача удалить из этого списка все двойки, а все тройки заменить на четверки.
-Списки оценок (проверить работу программы на всех трех вариантах):
-[2, 3, 4, 5, 3, 4, 5, 2, 2, 5, 3, 4, 3, 5, 4]
-[4, 2, 3, 5, 3, 5, 4, 2, 2, 5, 4, 3, 5, 3, 4]
-15, 4, 3, 3, 4, 3, 3, 5, 5, 3, 3, 3, 3, 4, 4]
-Результатом выполнения задачи будет: листинг кода, и вывод в консоль, в котором будут три обновленных массива.
+### Напиши программу на python. 4) Напишите программу, которая получает на вход предложение, выводит его в терминал, заменяя все запрещенные слова звездочками * (количество звездочек равно количеству букв в слове). Запрещенные слова, разделенные символом пробела, хранятся в текстовом файле input.txt. Все слова в этом файле записаны в нижнем регистре. Программа должна заменить запрещенные слова, где бы они ни встречались, даже в середине другого слова. Замена производится независимо от регистра: если файл input.txt содержит запрещенное слово ехат, то слова ехат, Exam, ЕхаМ, ЕХАМ и ехАт должны быть заменены на ****.
+• Запрещенные слова:
+hello email python the exam wor is
+• Предложение для проверки:
+Hello, world! Python IS the programming language of thE future. My
+EMAIL is....
+PYTHON is awesome!!!!
+• Ожидаемый результат:
+*****, ***ld! *********** programming language of *** future. My
+*******
+******** awesome!!!!
+
 
 
 ```python
 
-def update_grades(grades):
-    # Удаляем двойки и заменяем тройки на четверки
-    updated_grades = []
-    for grade in grades:
-        if grade == 2:
-            continue  # Пропускаем двойки
-        if grade == 3:
-            updated_grades.append(4)  # Заменяем тройки на четверки
-        else:
-            updated_grades.append(grade)  # Оставляем остальные оценки
-    return updated_grades
+def load_banned_words(filename):
+    """Загружает запрещенные слова из файла и возвращает их в виде множества."""
+    with open(filename, 'r', encoding='utf-8') as file:
+        banned_words = set(file.read().strip().split())
+    return banned_words
 
-# Тестовые списки оценок
-grades1 = [2, 3, 4, 5, 3, 4, 5, 2, 2, 5, 3, 4, 3, 5, 4]
-grades2 = [4, 2, 3, 5, 3, 5, 4, 2, 2, 5, 4, 3, 5, 3, 4]
-grades3 = [15, 4, 3, 3, 4, 3, 3, 5, 5, 3, 3, 3, 3, 4, 4]
+def replace_banned_words(sentence, banned_words):
+    """Заменяет запрещенные слова на звездочки в предложении."""
+    import re
+    
+    def replace_word(match):
+        word = match.group(0)
+        return '*' * len(word)  # Заменяем слово на звездочки
+    
+    # Создаём регулярное выражение для поиска запрещенных слов (независимо от регистра)
+    regex_pattern = r'\b(' + '|'.join(re.escape(word) for word in banned_words) + r')\b'
+    # Используем re.IGNORECASE для игнорирования регистра
+    replaced_sentence = re.sub(regex_pattern, replace_word, sentence, flags=re.IGNORECASE)
+    
+    return replaced_sentence
 
-# Обновляем оценки
-updated_grades1 = update_grades(grades1)
-updated_grades2 = update_grades(grades2)
-updated_grades3 = update_grades(grades3)
+def main():
+    # Загружаем запрещенные слова
+    banned_words = load_banned_words('input.txt')
+    
+    # Предложение для проверки
+    test_sentence = "Hello, world! Python IS the programming language of thE future. My EMAIL is.... PYTHON is awesome!!!!"
+    
+    print("Исходное предложение:")
+    print(test_sentence)
+    
+    # Заменяем запрещенные слова
+    result = replace_banned_words(test_sentence, banned_words)
+    
+    print("\nРезультат:")
+    print(result)
 
-# Вывод результатов
-print(f"Обновленный список оценок 1: {updated_grades1}")
-print(f"Обновленный список оценок 2: {updated_grades2}")
-print(f"Обновленный список оценок 3: {updated_grades3}")
+if __name__ == "__main__":
+    main()
 
 
 ```
@@ -434,58 +530,50 @@ print(f"Обновленный список оценок 3: {updated_grades3}")
 В этом коде продемонстрирована возможность исполнения математических операций над строковыми переменными
   
 ## Самостоятельная работа №5
-### Напиши программу на python. Вам предоставлены списки натуральных чисел, из них необходимо сформировать множества. При этом следует соблюдать это правило: если какое-либо число повторяется, то преобразовать его в строку по следующему образцу: например, если число 4 повторяется 3 раза, то в множестве будет следующая запись: само число 4, строка «44», строка
-«444».
-Множества для теста:
-list
-_1 = [1, 1, 3, 3, 1]
-list_2 = [5, 5, 5, 5, 5, 5, 5]
-list_3 = 12, 2, 1, 2, 2, 5, 6, 7, 1, 3, 2, 2]
-Результаты вывода (порядок может отличаться, поскольку мы работаем
-c set):
-{'11', 1, 3, '33', '111"}
-{5, '5555', '555555', '55555', '555', '55', '5555555"}
-{'11, 1, 3, 2, 5, 6, '222222', '222', 7, '2222', '22222', '22'
+### Самостоятельно придумайте и решите задачу на python, которая будет взаимодействовать с текстовым файлом.
 
 
 
 ```python
 
-def create_custom_set(numbers):
-    count_dict = {}
+import re
+from collections import Counter
+
+def load_text(filename):
+    """Загружает текст из файла."""
+    with open(filename, 'r', encoding='utf-8') as file:
+        return file.read().strip()
+
+def count_words(text):
+    """Подсчитывает частоту слов в тексте."""
+    # Приводим текст к нижнему регистру и заменяем знаки препинания на пробелы
+    cleaned_text = re.sub(r'[^\w\s]', ' ', text.lower())
+    words = cleaned_text.split()
     
-    # Подсчитываем количество повторений каждого числа
-    for number in numbers:
-        if number in count_dict:
-            count_dict[number] += 1
-        else:
-            count_dict[number] = 1
-            
-    custom_set = set()
-    
-    # Формируем множество согласно заданным условиям
-    for number, count in count_dict.items():
-        custom_set.add(number)  # Добавляем само число
-        for i in range(1, count + 1):
-            custom_set.add(str(number) * i)  # Добавляем строковые представления
-    
-    return custom_set
+    # Подсчитываем частоту появления каждого слова
+    word_count = Counter(words)
+    return word_count
 
-# Списки для тестирования
-list_1 = [1, 1, 3, 3, 1]
-list_2 = [5, 5, 5, 5, 5, 5, 5]
-list_3 = [12, 2, 1, 2, 2, 5, 6, 7, 1, 3, 2, 2]
+def save_word_count(word_count, filename):
+    """Сохраняет результаты подсчета слов в файл."""
+    with open(filename, 'w', encoding='utf-8') as file:
+        for word, count in word_count.items():
+            file.write(f'{word}: {count}\n')
 
-# Создаём множества
-set_1 = create_custom_set(list_1)
-set_2 = create_custom_set(list_2)
-set_3 = create_custom_set(list_3)
+def main():
+    # Загружаем текст из файла
+    text = load_text('input.txt')
 
-# Выводим результаты
-print(set_1)
-print(set_2)
-print(set_3)
+    # Считаем слова
+    word_count = count_words(text)
 
+    # Сохраняем результаты в файл
+    save_word_count(word_count, 'output.txt')
+
+    print("Частота слов успешно подсчитана и сохранена в output.txt.")
+
+if __name__ == "__main__":
+    main()
 
 
 ```
