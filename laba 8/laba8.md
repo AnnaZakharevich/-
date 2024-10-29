@@ -63,7 +63,7 @@ mycar.drive()
 
 ```
 ### Результат.
-
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/l2.jpg)
 
 
 ## Выводы
@@ -94,7 +94,7 @@ my_electric_car.charge()
 ```
 ### Результат.
 
-
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/l3.jpg)
 
 
 ## Выводы
@@ -124,7 +124,7 @@ my_car.drive()
 ```
 ### Результат.
 
-
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/l4.jpg)
 
 
 ## Выводы
@@ -164,7 +164,7 @@ class Circle(Shape) :
 ```
 ### Результат.
 
-
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/l5.jpg)
 
 
 ## Выводы
@@ -207,7 +207,7 @@ if __name__ == "__main__":
 
 ```
 ### Результат.
-
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/s1.jpg)
 
 
 ## Выводы
@@ -267,7 +267,7 @@ if __name__ == "__main__":
 
 ```
 ### Результат.
-
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/s2.jpg)
 
 ## Выводы
 
@@ -362,7 +362,7 @@ if __name__ == "__main__":
 ```
 ### Результат.
 
-
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/s3.jpg)
 
 ## Выводы
 
@@ -466,7 +466,7 @@ if __name__ == "__main__":
 ```
 ### Результат.
 
-
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/s4.jpg)
 
 ## Выводы
 
@@ -536,7 +536,7 @@ if __name__ == "__main__":
 ```
 ### Результат.
 
-
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/s5.jpg)
 
 ## Выводы
 
