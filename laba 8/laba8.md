@@ -23,6 +23,12 @@
 
 ```python
 
+class Car:
+    def __init__ (self, make, model):
+        self.make = make
+        self.model = model
+
+my_car = Car("Toyota", "Corolla")
 
 
 
@@ -41,6 +47,17 @@
 
 ```python
 
+class Car:
+
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    def drive(self):
+        print(f"Driving the {self.make} {self.model}")
+
+mycar = Car("Toyota", "Corolla")
+mycar.drive()
 
 
 
@@ -61,6 +78,16 @@
 
 ```python
 
+class ElectricCar(Car) :
+    def __init__(self, make, model, battery_capacity) :
+        super().__init__(make, model)
+        self.battery_capacity = battery_capacity
+    def charge(self):
+        print(f"Charging the {self.make} {self.model} with {self.battery_capacity} kWh")
+
+my_electric_car = ElectricCar("Tesla", "Model S", 75)
+my_electric_car.drive()
+my_electric_car.charge()
 
 
 
@@ -80,6 +107,17 @@
 
 ```python
 
+class Car:
+    def __init__(self, make, model):
+        self.make = make # Защищенный атрибут
+        self.model = model # Приватный атрибут
+    def drive(self):
+        print(f"Driving the {self._make} {self.__model}")
+
+my_car = Car('Toyota', 'Corolla')
+print(my_car) # Доступ к защищенному аттрибуту"
+# print(my_car._make) Ошибка! Защищенный аттрибт не доступен
+my_car.drive()
 
 
 
@@ -99,6 +137,27 @@
 
 ```python
 
+class Shape:
+    def area(self):
+        pass
+
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+
+class Circle(Shape) :
+    def __init__(self, radius):
+        self.radius = radius
+
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
 
 
 
