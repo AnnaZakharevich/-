@@ -35,7 +35,7 @@ my_car = Car("Toyota", "Corolla")
 ```
 ### Результат.
 
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%205/pic/l1.png)
+![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/image.png)
 
 ## Выводы
 
@@ -178,7 +178,31 @@ class Circle(Shape) :
 
 ```python
 
+class Car:
+    def __init__(self, model, color, max_speed):
+        self.model = model
+        self.color = color
+        self.max_speed = max_speed
+    
+    def info(self):
+        return f"Модель: {self.model}, Цвет: {self.color}, Максимальная скорость: {self.max_speed} км/ч"
 
+    def accelerate(self, increase):
+        self.max_speed += increase
+        return f"Максимальная скорость увеличена до: {self.max_speed} км/ч"
+
+if __name__ == "__main__":
+    # Создание объекта класса Car
+    my_car = Car("Tesla Model 3", "Красный", 250)
+
+    # Вывод информации об автомобиле
+    print(my_car.info())
+
+    # Увеличение максимальной скорости
+    print(my_car.accelerate(20))
+
+    # Вывод обновленной информации
+    print(my_car.info())
 
 
 ```
@@ -196,6 +220,48 @@ class Circle(Shape) :
 
 ```python
 
+class Car:
+    def __init__(self, model, color, fuel_type, year):
+        self.model = model
+        self.color = color
+        self.fuel_type = fuel_type
+        self.year = year
+        self.mileage = 0  # атрибут для отслеживания пробега
+
+    def drive(self, distance):
+        self.mileage += distance
+        return f"{self.model} проехал {distance} км. Текущий пробег: {self.mileage} км."
+
+    def refuel(self, amount):
+        return f"{self.model} заправлен на {amount} литров {self.fuel_type}."
+
+    def car_age(self, current_year):
+        age = current_year - self.year
+        return f"{self.model} - возраст: {age} лет."
+
+    def info(self):
+        return (f"Модель: {self.model}, Цвет: {self.color}, "
+                f"Тип топлива: {self.fuel_type}, Год выпуска: {self.year}, "
+                f"Пробег: {self.mileage} км.")
+
+if __name__ == "__main__":
+    # Создание объекта класса Car
+    my_car = Car("Ford Mustang", "Синий", "Бензин", 2018)
+
+    # Вывод информации об автомобиле
+    print(my_car.info())
+
+    # Вождение автомобиля
+    print(my_car.drive(150))
+    
+    # Заправка автомобиля
+    print(my_car.refuel(50))
+    
+    # Получение возраста автомобиля
+    print(my_car.car_age(2024))
+
+    # Вывод обновленной информации
+    print(my_car.info())
 
 
 
@@ -213,6 +279,83 @@ class Circle(Shape) :
 
 ```python
 
+class Book:
+    def __init__(self, title, author, year, genre=None, rating=None, available=True):
+        self.title = title
+        self.author = author
+        self.year = year
+        self.genre = genre
+        self.rating = rating
+        self.available = available
+
+    def set_genre(self, genre):
+        self.genre = genre
+        return f"Жанр книги '{self.title}' установлен на '{self.genre}'."
+    
+    def set_rating(self, rating):
+        if 0 <= rating <= 10:
+            self.rating = rating
+            return f"Оценка книги '{self.title}' изменена на {self.rating}."
+        else:
+            return "Оценка должна быть в пределах от 0 до 10."
+    
+    def check_availability(self):
+        return self.available
+    
+    def borrow(self):
+        if self.available:
+            self.available = False
+            return f"Вы взяли книгу '{self.title}'."
+        else:
+            return f"Книга '{self.title}' недоступна."
+    
+    def return_book(self):
+        self.available = True
+        return f"Вы вернули книгу '{self.title}'."
+
+    def book_info(self):
+        availability = "доступна" if self.available else "недоступна"
+        return f"Книга: '{self.title}', Автор: '{self.author}', Год: {self.year}, Жанр: {self.genre}, Оценка: {self.rating}, Статус: {availability}"
+
+# Подкласс для университетских книг
+class UniversityBook(Book):
+    def __init__(self, title, author, year, subject, edition, genre=None, rating=None, available=True):
+        super().__init__(title, author, year, genre, rating, available)
+        self.subject = subject
+        self.edition = edition
+
+    def book_info(self):
+        base_info = super().book_info()
+        return f"{base_info}, Предмет: {self.subject}, Издание: {self.edition}"
+
+# Подкласс для художественных книг
+class FictionBook(Book):
+    def __init__(self, title, author, year, fiction_type, genre=None, rating=None, available=True):
+        super().__init__(title, author, year, genre, rating, available)
+        self.fiction_type = fiction_type
+
+    def book_info(self):
+        base_info = super().book_info()
+        return f"{base_info}, Тип художественной литературы: {self.fiction_type}"
+
+# Примеры использования
+if __name__ == "__main__":
+    # Создаем экземпляры книг
+    uni_book = UniversityBook("Основы программирования", "Иванов И.И.", 2020, "Информатика", "2-е")
+    fiction_book = FictionBook("Война и мир", "Лев Толстой", 1869, "Роман")
+
+    # Вывод информации о книгах
+    print(uni_book.book_info())
+    print(fiction_book.book_info())
+    
+    # Тестируем методы
+    print(uni_book.borrow())
+    print(uni_book.book_info())
+    print(uni_book.return_book())
+    print(uni_book.book_info())
+
+    print(fiction_book.set_rating(8))
+    print(fiction_book.book_info())
 
 
 
@@ -231,6 +374,92 @@ class Circle(Shape) :
 
 ```python
 
+class Book:
+    def __init__(self, title, author, year, genre=None, rating=None, available=True):
+        self.__title = title        # Приватный атрибут
+        self.__author = author      # Приватный атрибут
+        self.__year = year          # Приватный атрибут
+        self.__genre = genre        # Приватный атрибут
+        self.__rating = rating      # Приватный атрибут
+        self.__available = available # Приватный атрибут
+
+    # Геттеры
+    def get_title(self):
+        return self.__title
+    
+    def get_author(self):
+        return self.__author
+    
+    def get_year(self):
+        return self.__year
+    
+    def get_genre(self):
+        return self.__genre
+    
+    def get_rating(self):
+        return self.__rating
+    
+    def is_available(self):
+        return self.__available
+    
+    # Сеттеры
+    def set_genre(self, genre):
+        self.__genre = genre
+        return f"Жанр книги '{self.get_title()}' установлен на '{self.__genre}'."
+    
+    def set_rating(self, rating):
+        if 0 <= rating <= 10:
+            self.__rating = rating
+            return f"Оценка книги '{self.get_title()}' изменена на {self.__rating}."
+        else:
+            return "Оценка должна быть в пределах от 0 до 10."
+    
+    def borrow(self):
+        if self.__available:
+            self.__available = False
+            return f"Вы взяли книгу '{self.get_title()}'."
+        else:
+            return f"Книга '{self.get_title()}' недоступна."
+    
+    def return_book(self):
+        self.__available = True
+        return f"Вы вернули книгу '{self.get_title()}'."
+
+    def book_info(self):
+        availability = "доступна" if self.__available else "недоступна"
+        return f"Книга: '{self.get_title()}', Автор: '{self.get_author()}', Год: {self.get_year()}, Жанр: {self.__genre}, Оценка: {self.__rating}, Статус: {availability}"
+
+# Подкласс для университетских книг
+class UniversityBook(Book):
+    def __init__(self, title, author, year, subject, isbn, available=True):
+        super().__init__(title, author, year, genre='Academic', available=available)
+        self.__subject = subject  # Приватный атрибут
+        self.__isbn = isbn        # Приватный атрибут
+
+    def get_subject(self):
+        return self.__subject
+
+    def get_isbn(self):
+        return self.__isbn
+
+    def book_info(self):
+        base_info = super().book_info()
+        return f"{base_info}, Предмет: {self.get_subject()}, ISBN: {self.get_isbn()}"
+
+# Пример использования
+if __name__ == "__main__":
+    book1 = Book("1984", "Джордж Оруэлл", 1949)
+    print(book1.book_info())
+    print(book1.set_genre("Дистопия"))
+    print(book1.set_rating(9))
+    print(book1.borrow())
+    print(book1.book_info())
+    print(book1.return_book())
+
+    uni_book = UniversityBook("Математика", "Иванов И.И.", 2020, "Математика", "978-3-16-148410-0")
+    print(uni_book.book_info())
+    print(uni_book.borrow())
+    print(uni_book.book_info())
 
 
 
@@ -249,6 +478,58 @@ class Circle(Shape) :
 
 ```python
 
+class Shape:
+    def area(self):
+        raise NotImplementedError("Метод area() должен быть реализован в подклассах.")
+    
+    def description(self):
+        return "Это фигура."
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14159 * (self.radius ** 2)
+    
+    def description(self):
+        return f"Круг с радиусом {self.radius}."
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+    
+    def description(self):
+        return f"Прямоугольник шириной {self.width} и высотой {self.height}."
+
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return 0.5 * self.base * self.height
+    
+    def description(self):
+        return f"Треугольник с основанием {self.base} и высотой {self.height}."
+
+def print_shape_info(shape):
+    print(shape.description())
+    print(f"Площадь: {shape.area()}")
+
+if __name__ == "__main__":
+    shapes = [
+        Circle(5),
+        Rectangle(4, 6),
+        Triangle(3, 7),
+    ]
+
+    for shape in shapes:
+        print_shape_info(shape)
 
 
 
