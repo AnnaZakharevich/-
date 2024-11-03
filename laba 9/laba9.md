@@ -44,7 +44,7 @@ person2.surname = 'Петров'
 ```
 ### Результат.
 
-![Меню](![image](https://github.com/user-attachments/assets/68a8bd78-85ec-4ed2-b5be-94fc8d568361))
+![image](https://github.com/user-attachments/assets/68a8bd78-85ec-4ed2-b5be-94fc8d568361)
 
 ## Выводы
 В этой задаче с помощью функции и проверки через если программа проверяет, угадали ли мы имя человека
