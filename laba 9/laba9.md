@@ -81,7 +81,7 @@ icecream.composition()
 ```
 ### Результат.
 
-![Меню](![image](https://github.com/user-attachments/assets/4781ffb3-b860-444b-9fbd-5c80ededde27))
+![image](https://github.com/user-attachments/assets/4781ffb3-b860-444b-9fbd-5c80ededde27)
 
 ## Выводы
 в данной программе с помощью функции реализуется определение наличия/отсутсвия топпинга в мороженом
@@ -123,7 +123,7 @@ if __name__ == '__main__':
 ```
 ### Результат.
 
-![Меню](![image](https://github.com/user-attachments/assets/029ea753-5d4d-4a98-b7d1-2a9ae8c674a8))
+![image](https://github.com/user-attachments/assets/029ea753-5d4d-4a98-b7d1-2a9ae8c674a8)
 
 ## Выводы
 1. Метод класса, который служит конструктором, должен называться __init__. Здесь он назван просто init, что является ошибкой.
@@ -155,7 +155,7 @@ print(f"Cat is {cat.className}, but they say {dog.sounds}")
 ```
 ### Результат.
 
-![Меню](![image](https://github.com/user-attachments/assets/590f878d-d4c7-4552-98d8-6eb9bf922197))
+![image](https://github.com/user-attachments/assets/590f878d-d4c7-4552-98d8-6eb9bf922197)
 
 ## Выводы
 В данной задаче наглядно показан пример наследования классов
@@ -184,7 +184,7 @@ greet john)
 ```
 ### Результат.
 
-![Меню](![image](https://github.com/user-attachments/assets/591295a0-2d7d-424a-bf01-975ee43bcb47))
+![image](https://github.com/user-attachments/assets/591295a0-2d7d-424a-bf01-975ee43bcb47)
 
 ## Выводы
 В данной задаче наглядно показан пример полиморфизма 
@@ -275,7 +275,7 @@ gardener.harvest()
 ```
 ### Результат.
 
-![Меню](![image](https://github.com/user-attachments/assets/a71e1a13-e54d-41da-b3bb-ed2088a9ba36))
+![image](https://github.com/user-attachments/assets/a71e1a13-e54d-41da-b3bb-ed2088a9ba36)
 
 ## Выводы
 Я рассмотрела основы создания классов и объектов в Python, а также работу с методами класса и конструкторами. Практическое применение принципов ООП позволило лучше понять их значимость при разработке программных систем.
