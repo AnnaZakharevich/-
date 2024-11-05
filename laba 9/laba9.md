@@ -199,21 +199,24 @@ greet john)
 
 
 class Gardener:
+    # Конструктор класса, принимающий имя садовника и растение, за которым он будет ухаживать.
     def __init__(self, name, plant):
-        self.name = name
-        self._plant = plant
+        self.name = name 
+        self._plant = plant  
 
+    # Метод работы садовника. Если у растения есть помидоры, то вызывается метод роста всех помидоров.
     def work(self):
-        if self._plant.tomatoes:
-            self._plant.grow_all()
-
+        if self._plant.tomatoes:  
+            self._plant.grow_all()  
+    # Метод сбора урожая. Проверяется состояние зрелости всех помидоров.
     def harvest(self):
-        if self._plant.all_are_ripe():
-            self._plant.give_away_all()
-            print(f"Садовник {self.name} собрал урожай!")
+        if self._plant.all_are_ripe():  
+            self._plant.give_away_all()  
+            print(f"Садовник {self.name} собрал урожай!")  
         else:
-            print(f"Садовник {self.name} пока не может собирать урожай, не все томаты созрели.")
+            print(f"Садовник {self.name} пока не может собирать урожай, не все томаты созрели.")  
 
+    # Статический метод, предоставляющий справочную информацию по уходу за растениями.
     @staticmethod
     def knowledge_base():
         print("Справка по садоводству:")
@@ -222,41 +225,49 @@ class Gardener:
         print("- Собирайте томаты аккуратно, не повреждая куст.")
 
 
+# Класс Помидора, представляющего собой отдельный плод на кусте.
 class Tomato:
     states = {0: 'Отсутствует', 1: 'Цветение', 2: 'Зеленый', 3: 'Красный'}
 
+    # Конструктор класса, принимающий индекс плода.
     def __init__(self, index):
-        self._index = index
-        self._state = 0
+        self._index = index  
+        self._state = 0  
 
+    # Метод роста помидора. При каждом вызове состояние увеличивается до тех пор, пока не достигнет максимального значения (красный).
     def grow(self):
-        if self._state < 3:
-            self._state += 1
-
+        if self._state < 3:  
+            self._state += 1  
+    # Метод проверки зрелости помидора. Возвращает True, если помидор красный, иначе False.
     def is_ripe(self):
-        if self._state == 3:
+        if self._state == 3:  
             return True
         return False
 
 
+# Класс Куст помидоров, содержащий несколько плодов.
 class TomatoBush:
+    # Конструктор класса, принимающий количество помидоров на кусте.
     def __init__(self, num):
-        self.tomatoes = [Tomato(i) for i in range(num)]
+        self.tomatoes = [Tomato(i) for i in range(num)]  
 
+    # Метод роста всех помидоров на кусте.
     def grow_all(self):
-        for tomato in self.tomatoes:
+        for tomato in self.tomatoes:  
             tomato.grow()
 
+    # Метод проверки, все ли помидоры на кусте созрели.
     def all_are_ripe(self):
-        return all(tomato.is_ripe() for tomato in self.tomatoes)
-
+        return all(tomato.is_ripe() for tomato in self.tomatoes)  
+    # Метод удаления всех созревших помидоров с куста.
     def give_away_all(self):
-        self.tomatoes = []
+        self.tomatoes = []  
 
 
 Gardener.knowledge_base()
 
 bush = TomatoBush(10)
+
 gardener = Gardener("Иван", bush)
 
 for _ in range(3):
@@ -269,6 +280,7 @@ while not bush.all_are_ripe():
     gardener.harvest()
 
 gardener.harvest()
+
 
 
 
