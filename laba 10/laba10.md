@@ -18,7 +18,7 @@
 - к.э.н., доцент Панов М.А.
 
 ## Лабораторная работа №1
-### Создайте класс 'Car' с атрибутами производитель и модель. Создайте объект этого класса. Напишите компоненты для кода, объясняющие его работу. Результатом выполнения задания будет листинг кода с комментариями.
+### Навёрстка вы думаете, что декоратор – это какая-то бесполезная вещь, которая вам никогда не пригодится, но тут вдруг на паре по математике преподаватель просит всех посчитать число Фибоначчи для 100. Кто-то будет считать вручную (так точно не нужно), кто-то посчитает на калькуляторе, а кто-то понимает, что он самый крутой и напишет рекурсивную программу на Python и немного огорчится, потому что данная программа будет достаточно долго считаться, если ее просто так запускать. Но именно туда к вам на помощь придут декораторы, например @lru_cache (он предназначен для решения задач динамическим программированием, если простыми словами, то этот декоратор запоминает промежуточные результаты и при рекурсивном вызове функции программы не будет считать одни и те же значения, а просто "возвращать их из этого декоратора"). Вам нужно направить программу, которая будет считать числа Фибоначчи для 100 и запустить ее без этого декоратора и с ним, посмотреть на разницу во времени решения поставленной задачи. P.S. при запуске без декоратора может долго не ждать, для наглядности хватит 10 секунд ожидания.
 
 
 ```python
@@ -47,71 +47,79 @@ if __name__ == '__main__':
 
 ## Выводы
 
-В данном коде выводятся три строки с использованием функции `print()`. Каждая строка содержит разные значения
+Мы написали программу для рассчета числа Фибонначи с помощью декоратора @lru_cache
 
 ## Лабораторная работа №2
-### Дополните код из первого задания, добавив в него аттрибуты и методы класса, заставьте машину "поехать". Напишите комментарии для кода, объясняющие его работу. Результатом выполнения задания будет листинг кода с комментариями и получившийся вывод в консоль.
+### Илья питает свой сайт и ему необходимо сделать минимальную проверку входа данных пользователей при регистрации. Для этого он реализовал функцию, которая выводит данные пользователя на экран и решает, что будет проверять правильность введенных данных при помощи декоратора, но в этом ему потребовалась ваша помощь. Напишите декоратор для функции, который будет принимать все параметры вызываемой функции (имя, возраст) и проверять чтобы возраст был больше 0 и меньше 130. Причём запомните, что важно сколько пользователь введет данных на сайт к Илье, будут обрабатываться только первые 2 аргумента.
 
 
 ```python
 
-class Car:
+def check(input_func):
+    def output_func(*args):
+        name, age = args[0], args[1]
 
-    def __init__(self, make, model):
-        self.make = make
-        self.model = model
+        if age < 0 or age > 130:
+            age = 'Недопустимый возраст'
+        input_func(name, age)
 
-    def drive(self):
-        print(f"Driving the {self.make} {self.model}")
+    return output_func
+@check
+def personal_info(name, age):
+    print(f"Name: {name} Age: {age}")
+if __name__ == '__main__':
+    personal_info('Владимир', 38)
+    personal_info('Александр', -5)
+    personal_info('Петр', 138, 15, 48, 2)
 
-mycar = Car("Toyota", "Corolla")
-mycar.drive()
 
 
 
 ```
 ### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/l2.jpg)
+![image](https://github.com/user-attachments/assets/28a58728-b0b2-4313-8b35-d6ca45b7ce10)
+
 
 
 ## Выводы
 
-В данном коде производится вычисление и вывод значений внутри операции print
+Мы написали программу для проверки вводимых на сайт данных с помощью декоратора @check
 
 ## Лабораторная работа №3
-###  Создайте новый класс «ElectricCar» с методом «charge» и атрибутом емкость батарей. Реализуйте его наследовние от класса, созданного в первом задании. Заставьте машину ехать, а потом заряжаться.
-
-Напишите комментарии для кода, объясняющие его работу. Результатом выполнения задания будет листинг кода с комментариями и получившийся вывод в консоль.
-
+###  Вам понадобилась идея Ильи с сайтом, и вы решили дальше работать вместе с ним. Но вот в вашем проекте появилась проблема, кто-то пытается сломать вашу функцию с получением данных для сайта. Эта функция работает только с данными integer, а какой-то недохакер пытается все сломать и вместо нужного типа данных отправляет string. Воспользуйтесь исключениями, чтобы неподходящий тип данных не ломал ваш сайт. Также дополнительно можете обернуть весь код функции в try/except/finally для того, чтобы программа вас осведомила о том, что ошибка или программа успешно выполнена.
 
 ```python
 
-class ElectricCar(Car) :
-    def __init__(self, make, model, battery_capacity) :
-        super().__init__(make, model)
-        self.battery_capacity = battery_capacity
-    def charge(self):
-        print(f"Charging the {self.make} {self.model} with {self.battery_capacity} kWh")
+def data(*args):
+    try:
+        for i in range(len(*args)):
+            try:
+                result = (args[0][i] * 15) // 10
+                print(result)
+            except Exception as ex:
+                print(ex)
+    except Exception as ex:
+        print(ex)
+    finally:
+        print('Вся информация обработана')
 
-my_electric_car = ElectricCar("Tesla", "Model S", 75)
-my_electric_car.drive()
-my_electric_car.charge()
-
+if __name__ == '__main__':
+    data([1, 15, 'Hello', 'i', 'try', 'to', 'crash', 'your', 'site', 38, 45])
 
 
 ```
 ### Результат.
 
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/l3.jpg)
+![image](https://github.com/user-attachments/assets/e6e69048-2861-416e-a52b-20b6492f6f38)
+
 
 
 ## Выводы
 
-В этом коде выводится сообщение "Привет, Мир!" тремя различными способами.
+Эта программа проверяет наличие данных с неподходящим типом
   
 ## Лабораторная работа №4
-### Реализуйте инкапсуляцию для класса, созданного в первом задании. Создайте защищенный атрибут производителя и приватный атрибут модели. Вызовите защищенный атрибут и заставьте машину поедать. Напишите комментарии для кода, объясняющие его работу. Результатом выполнения задания будет листинг кода с комментариями и получившийся вывод в консоль.
-
+### Продолжая работу над сайтом, вы решили написать собственное исключение, которое будет вызываться в случае, если в функцию проверки имени при регистрации передана строка длиннее десяти символов, а если имя имеет допустимую длину, то в консоль выводится "Успешная регистрация".
 
 ```python
 
@@ -128,427 +136,348 @@ print(my_car) # Доступ к защищенному аттрибуту"
 my_car.drive()
 
 
-
 ```
 ### Результат.
 
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/l4.jpg)
+![image](https://github.com/user-attachments/assets/00bf1a25-2984-412b-a623-2059ee98d4ed)
+
 
 
 ## Выводы
-
-В данном коде наглядно показана трансформация типов перменных из одного типа в другой.
+Эта программа позволяет сделать выводы об успешной регистрации исходя из допустимости вводимых данных
 
 ## Лабораторная работа №5
-### Реализуйте полиморфизм создания основной (общий) класс "Shape", а также еще два класса "Rectangle" и "Circle". Внутри последних двух классов реализуйте методы для подсчета площади фигуры. После этого создайте массив с фигурами, поместите туда круг и прямоугольник, затем при помощи цикла выведите их площади. Напишите комментарии к коду, объясняющие его работу. Результатом выполнения задания будет список кода с комментариями и получившийся вывод в консоль.
-
+### После запуска сайта вы поняли, что вам необходимо добавить логотер, для отслеживания его работы. Готовыми вариантами вы не заходили пользоваться, и поэтому решили создать очень простую паролию. Для этого создали две функции: init () (вызывается при создании класса декоратора в программе) и call () (вызывается при вызове декоратора). Создайте необходимый вам декоратор. Выведите все логи в консоль.
 
 ```python
 
-class Shape:
-    def area(self):
-        pass
+class SiteChecker:
+    def __init__(self, func):
+        print('>Класс SiteChecker мктод __init__ успешный запуск')
+        self.func = func
+    def __call__(self):
+        print('>Проверка перед запуском', self.func.__name__)
+        self.func()
+        print('>Проверка безопасного выыключения')
 
+@SiteChecker
+def site():
+    print('Усердная работа сайта')
 
-class Rectangle(Shape):
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
-
-    def area(self):
-        return self.width * self.height
-
-
-class Circle(Shape) :
-    def __init__(self, radius):
-        self.radius = radius
-
-
-    def area(self):
-        return 3.14 * self.radius * self.radius
+if __name__ == '__main__':
+    print('>> Сайт запущен')
+    site()
+    print('>> Сайт выключен')
 
 
 
 ```
 ### Результат.
 
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/l5.jpg)
+![image](https://github.com/user-attachments/assets/4bd4b831-a062-4d5a-827a-35cae05bfc8e)
+
 
 
 ## Выводы
 
-Этот код выводит на экран значения трех переменных, заданных пользователем с клавиатурыэл
+В этом коде мы добавили логгер, испльзовав два декоратора
 
 
 
 ## Самостоятельная работа №1
-### Самостоятельно создайте класс и его объект. Они должны отличаться, от тех, что указаны в теоретическом материале (методичке) и лабораторных заданиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
+### Воочка решил заняться спортивным программированием на Python, но для этого он должен знать за какое время выполняется его программа. Он решил, что для этого ему идеально подойдет декорратор для функции, который будет высчитывать за какое время выполнятся та или иная функция. Помогите Воочке в его начинаниях и напишите такой декоратор.
+Пожазка: необходимо использовать модуль time
+Результатом вашей работы будет листинг кода и скриншот консоли, в котором будет выполненная функция Фибоначчи и время выполнения программы. Также на этом примере можете посмотреть, что решение задачи через рекурсию не всегда является хорошей идеей. Поскольку решение Фибоначчи для 100 с использованием рекурсии и без динамического программирования решается гораздо легче секунды, а решение точно такой же задачи, но через цикл for еще и для 200, занимает меньше 1 секунды.
 
 ```python
 
-class Car:
-    def __init__(self, model, color, max_speed):
-        self.model = model
-        self.color = color
-        self.max_speed = max_speed
-    
-    def info(self):
-        return f"Модель: {self.model}, Цвет: {self.color}, Максимальная скорость: {self.max_speed} км/ч"
+import time
 
-    def accelerate(self, increase):
-        self.max_speed += increase
-        return f"Максимальная скорость увеличена до: {self.max_speed} км/ч"
+# Декоратор для измерения времени выполнения функции
+def time_decorator(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()  # Начало отсчета времени
+        result = func(*args, **kwargs)  # Вызов функции
+        end_time = time.time()  # Конец отсчета времени
+        print(f"Время выполнения функции '{func.__name__}': {end_time - start_time:.4f} секунд")
+        return result
+    return wrapper
 
-if __name__ == "__main__":
-    # Создание объекта класса Car
-    my_car = Car("Tesla Model 3", "Красный", 250)
+# Функция для вычисления n-го числа Фибоначчи с использованием рекурсии
+@time_decorator
+def fibonacci_recursive(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
 
-    # Вывод информации об автомобиле
-    print(my_car.info())
-
-    # Увеличение максимальной скорости
-    print(my_car.accelerate(20))
-
-    # Вывод обновленной информации
-    print(my_car.info())
-
-
-```
-### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/s1.jpg)
-
-
-## Выводы
-
-В этом коде используется функция bool, для вывода булевого значения из числа
-  
-## Самостоятельная работа №2
-### Самостоятельно создавайте атрбуты и методы для ранее созданного класса. Они должны отличаться, от того, что указано в теоретическом материале (методике) и лабораторных занятиях. Результатом выполнения задания будет листинг кода и получившийся вывод консоли.
-
-
-```python
-
-class Car:
-    def __init__(self, model, color, fuel_type, year):
-        self.model = model
-        self.color = color
-        self.fuel_type = fuel_type
-        self.year = year
-        self.mileage = 0  # атрибут для отслеживания пробега
-
-    def drive(self, distance):
-        self.mileage += distance
-        return f"{self.model} проехал {distance} км. Текущий пробег: {self.mileage} км."
-
-    def refuel(self, amount):
-        return f"{self.model} заправлен на {amount} литров {self.fuel_type}."
-
-    def car_age(self, current_year):
-        age = current_year - self.year
-        return f"{self.model} - возраст: {age} лет."
-
-    def info(self):
-        return (f"Модель: {self.model}, Цвет: {self.color}, "
-                f"Тип топлива: {self.fuel_type}, Год выпуска: {self.year}, "
-                f"Пробег: {self.mileage} км.")
-
-if __name__ == "__main__":
-    # Создание объекта класса Car
-    my_car = Car("Ford Mustang", "Синий", "Бензин", 2018)
-
-    # Вывод информации об автомобиле
-    print(my_car.info())
-
-    # Вождение автомобиля
-    print(my_car.drive(150))
-    
-    # Заправка автомобиля
-    print(my_car.refuel(50))
-    
-    # Получение возраста автомобиля
-    print(my_car.car_age(2024))
-
-    # Вывод обновленной информации
-    print(my_car.info())
-
-
-
-```
-### Результат.
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/s2.jpg)
-
-## Выводы
-
-В данном коде реализована возможность присвоения значений нескольким переменным в одной строке
-  
-## Самостоятельная работа №3
-### Самостоятельно реализуйте наследование, продолжая работать с ранее созданным классом. Оно должно отличаться, от того, что указано в теоретическом материалале (методишке) и лабораторных задания. Результатам выполнения задания будет листинги кода и получившейся вывод консоли.
-
-
-```python
-
-class Book:
-    def __init__(self, title, author, year, genre=None, rating=None, available=True):
-        self.title = title
-        self.author = author
-        self.year = year
-        self.genre = genre
-        self.rating = rating
-        self.available = available
-
-    def set_genre(self, genre):
-        self.genre = genre
-        return f"Жанр книги '{self.title}' установлен на '{self.genre}'."
-    
-    def set_rating(self, rating):
-        if 0 <= rating <= 10:
-            self.rating = rating
-            return f"Оценка книги '{self.title}' изменена на {self.rating}."
-        else:
-            return "Оценка должна быть в пределах от 0 до 10."
-    
-    def check_availability(self):
-        return self.available
-    
-    def borrow(self):
-        if self.available:
-            self.available = False
-            return f"Вы взяли книгу '{self.title}'."
-        else:
-            return f"Книга '{self.title}' недоступна."
-    
-    def return_book(self):
-        self.available = True
-        return f"Вы вернули книгу '{self.title}'."
-
-    def book_info(self):
-        availability = "доступна" if self.available else "недоступна"
-        return f"Книга: '{self.title}', Автор: '{self.author}', Год: {self.year}, Жанр: {self.genre}, Оценка: {self.rating}, Статус: {availability}"
-
-# Подкласс для университетских книг
-class UniversityBook(Book):
-    def __init__(self, title, author, year, subject, edition, genre=None, rating=None, available=True):
-        super().__init__(title, author, year, genre, rating, available)
-        self.subject = subject
-        self.edition = edition
-
-    def book_info(self):
-        base_info = super().book_info()
-        return f"{base_info}, Предмет: {self.subject}, Издание: {self.edition}"
-
-# Подкласс для художественных книг
-class FictionBook(Book):
-    def __init__(self, title, author, year, fiction_type, genre=None, rating=None, available=True):
-        super().__init__(title, author, year, genre, rating, available)
-        self.fiction_type = fiction_type
-
-    def book_info(self):
-        base_info = super().book_info()
-        return f"{base_info}, Тип художественной литературы: {self.fiction_type}"
-
-# Примеры использования
-if __name__ == "__main__":
-    # Создаем экземпляры книг
-    uni_book = UniversityBook("Основы программирования", "Иванов И.И.", 2020, "Информатика", "2-е")
-    fiction_book = FictionBook("Война и мир", "Лев Толстой", 1869, "Роман")
-
-    # Вывод информации о книгах
-    print(uni_book.book_info())
-    print(fiction_book.book_info())
-    
-    # Тестируем методы
-    print(uni_book.borrow())
-    print(uni_book.book_info())
-    print(uni_book.return_book())
-    print(uni_book.book_info())
-
-    print(fiction_book.set_rating(8))
-    print(fiction_book.book_info())
-
-
-
-```
-### Результат.
-
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/s3.jpg)
-
-## Выводы
-
-В данном коде показана возможность присвоения значения переменной с клавиатуры
-  
-## Самостоятельная работа №4
-### Самостоятельно реализируйте инкапсуляцию, продолжая работать с раннее созданный класс. Она должна отличаться, оттого, что указнана в теоретисеском материале (методие) и лабороторных занятий. Результатами выполнения задания будут листинги кода и получения вывода консоли.
-
-
-```python
-
-class Book:
-    def __init__(self, title, author, year, genre=None, rating=None, available=True):
-        self.__title = title        # Приватный атрибут
-        self.__author = author      # Приватный атрибут
-        self.__year = year          # Приватный атрибут
-        self.__genre = genre        # Приватный атрибут
-        self.__rating = rating      # Приватный атрибут
-        self.__available = available # Приватный атрибут
-
-    # Геттеры
-    def get_title(self):
-        return self.__title
-    
-    def get_author(self):
-        return self.__author
-    
-    def get_year(self):
-        return self.__year
-    
-    def get_genre(self):
-        return self.__genre
-    
-    def get_rating(self):
-        return self.__rating
-    
-    def is_available(self):
-        return self.__available
-    
-    # Сеттеры
-    def set_genre(self, genre):
-        self.__genre = genre
-        return f"Жанр книги '{self.get_title()}' установлен на '{self.__genre}'."
-    
-    def set_rating(self, rating):
-        if 0 <= rating <= 10:
-            self.__rating = rating
-            return f"Оценка книги '{self.get_title()}' изменена на {self.__rating}."
-        else:
-            return "Оценка должна быть в пределах от 0 до 10."
-    
-    def borrow(self):
-        if self.__available:
-            self.__available = False
-            return f"Вы взяли книгу '{self.get_title()}'."
-        else:
-            return f"Книга '{self.get_title()}' недоступна."
-    
-    def return_book(self):
-        self.__available = True
-        return f"Вы вернули книгу '{self.get_title()}'."
-
-    def book_info(self):
-        availability = "доступна" if self.__available else "недоступна"
-        return f"Книга: '{self.get_title()}', Автор: '{self.get_author()}', Год: {self.get_year()}, Жанр: {self.__genre}, Оценка: {self.__rating}, Статус: {availability}"
-
-# Подкласс для университетских книг
-class UniversityBook(Book):
-    def __init__(self, title, author, year, subject, isbn, available=True):
-        super().__init__(title, author, year, genre='Academic', available=available)
-        self.__subject = subject  # Приватный атрибут
-        self.__isbn = isbn        # Приватный атрибут
-
-    def get_subject(self):
-        return self.__subject
-
-    def get_isbn(self):
-        return self.__isbn
-
-    def book_info(self):
-        base_info = super().book_info()
-        return f"{base_info}, Предмет: {self.get_subject()}, ISBN: {self.get_isbn()}"
+# Функция для вычисления n-го числа Фибоначчи с использованием цикла
+@time_decorator
+def fibonacci_iterative(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
 
 # Пример использования
-if __name__ == "__main__":
-    book1 = Book("1984", "Джордж Оруэлл", 1949)
-    print(book1.book_info())
-    print(book1.set_genre("Дистопия"))
-    print(book1.set_rating(9))
-    print(book1.borrow())
-    print(book1.book_info())
-    print(book1.return_book())
+n_recursive = 30  
+print(f"Fibonacci (рекурсия) для {n_recursive}: {fibonacci_recursive(n_recursive)}")
 
-    uni_book = UniversityBook("Математика", "Иванов И.И.", 2020, "Математика", "978-3-16-148410-0")
-    print(uni_book.book_info())
-    print(uni_book.borrow())
-    print(uni_book.book_info())
+n_iterative = 200 
+print(f"Fibonacci (итеративный) для {n_iterative}: {fibonacci_iterative(n_iterative)}")
+
 
 
 
 ```
 ### Результат.
+![image](https://github.com/user-attachments/assets/6ed35695-b767-4822-86c0-868a4f3edfbe)
 
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/s4.jpg)
 
 ## Выводы
+1.	time_decorator: Это декоратор, который измеряет время выполнения функции и выводит его в консоль.
+2.	fibonacci_recursive: Эта функция вычисляет n-е число Фибоначчи рекурсивным способом и заодно оборачивается в декоратор.
+3.	fibonacci_iterative: Эта функция вычисляет n-е число Фибоначчи итеративным способом и тоже оборачивается в декоратор.
+4.	Мы тестируем обе функции, вызывая их с разными значениями.
 
-В этом коде продемонстрирована возможность исполнения математических операций над строковыми переменными
+
   
-## Самостоятельная работа №5
-### Самостоятельно реализовайте полиморфизм. Он должен отличаться от того что указан в теоретическийм материале (методиике)и лабораторних задания. Результом выполнения задание будет линтинг кода и получилшися вывод консол
-
+## Самостоятельная работа №2
+### Посмотрев на Волчку, вы также заметили идеи спортивного программирования, начав тренировки вы узнали, что для решения некоторых задач необходимо считать данные из файлов. Но через некоторое время вы столкнулись с проблемой что файлы бывают пустыми, и вы не получаете входные данные для решения задачи. После этого вы решили не просто считать данные из файла, а всю конструкцию оборачивать в исключения, чтобы избежать такой проблемы. Создайте пустой файл и файл, в котором есть какая-то информация. Напишите код программы. Если файл пустой, то нужно вывести исключение ("бросить исключение") и вывести в консоль "файл пустой", а если он не пустой, то вывести информацию из файла.
 
 ```python
 
-class Shape:
-    def area(self):
-        raise NotImplementedError("Метод area() должен быть реализован в подклассах.")
-    
-    def description(self):
-        return "Это фигура."
+# Создание пустого файла
+with open('empty_file.txt', 'w') as f:
+    pass  # Просто создаем пустой файл
 
-class Circle(Shape):
-    def __init__(self, radius):
-        self.radius = radius
+# Создание файла с данными
+with open('data_file.txt', 'w') as f:
+    f.write("Это файл с некоторой информацией.")
 
-    def area(self):
-        return 3.14159 * (self.radius ** 2)
-    
-    def description(self):
-        return f"Круг с радиусом {self.radius}."
 
-class Rectangle(Shape):
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
 
-    def area(self):
-        return self.width * self.height
-    
-    def description(self):
-        return f"Прямоугольник шириной {self.width} и высотой {self.height}."
+```
 
-class Triangle(Shape):
-    def __init__(self, base, height):
-        self.base = base
-        self.height = height
+```python
 
-    def area(self):
-        return 0.5 * self.base * self.height
-    
-    def description(self):
-        return f"Треугольник с основанием {self.base} и высотой {self.height}."
+def read_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+            if not content:  # Проверяем, пустой ли файл
+                raise ValueError("Файл пустой")  # Генерируем исключение, если файл пустой
+            print(f"Содержимое файла '{file_path}':")
+            print(content)  # Если файл не пустой, выводим его содержимое
+    except FileNotFoundError:
+        print(f"Ошибка: Файл '{file_path}' не найден.")
+    except ValueError as ve:
+        print(ve)  # Выводим сообщение об ошибке, если файл пустой
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")
 
-def print_shape_info(shape):
-    print(shape.description())
-    print(f"Площадь: {shape.area()}")
+# Чтение пустого файла
+read_file('empty_file.txt')
 
-if __name__ == "__main__":
-    shapes = [
-        Circle(5),
-        Rectangle(4, 6),
-        Triangle(3, 7),
-    ]
-
-    for shape in shapes:
-        print_shape_info(shape)
+# Чтение файла с данными
+read_file('data_file.txt')
 
 
 
 ```
 ### Результат.
+![image](https://github.com/user-attachments/assets/c8e3daee-b30f-42c0-9430-1f62bc3e64ff)
 
-![Меню](https://github.com/AnnaZakharevich/-/blob/main/laba%208/pic/s5.jpg)
 
 ## Выводы
+Функция read_file принимает путь к файлу и пытается открыть его для чтения.
+Если файл пустой, генерируется исключение ValueError.
+Также обрабатываются исключения на случай, если файл не найден (FileNotFoundError) или любая другая ошибка (блок except Exception).
+Если файл не пустой, его содержимое выводится в консоль.
 
-В данном коде показывается вывод коментариев совместно с переменными
+
+## Самостоятельная работа №3
+### Напишите функцию, которая будет складывать 2 и введенное пользователем число, но если пользователь введет строку или другой неподходящий тип данных, то в консоль выводится ошибка "Неподходящий тип данных. Ожидалось число." Реализовать функциональную программу необходимо через try/except и подобрать правильный тип исключения. Создавать собственное исключение нельзя. Проведите несколько тестов, в которых исключение вызывается и нет. Результатом выполнения задачи будет список кода и получившийся вывод в консоль
+
+```python
+
+def add_two_and_user_input():
+    try:
+        user_input = input("Введите число: ")  # Запрашиваем ввод от пользователя
+        number = float(user_input)  # Пробуем привести ввод к типу float (число)
+        result = 2 + number  # Складываем 2 с числом
+        print(f"Результат: {result}")  # Выводим результат
+    except ValueError:  # Обрабатываем ошибку, если ввод не является числом
+        print("Неподходящий тип данных. Ожидалось число.")
+
+# Тесты
+if __name__ == "__main__":
+    # Запускаем несколько тестов
+    print("Тест 1:")
+    add_two_and_user_input()  # Ожидается ввод числа, например 5
+
+    print("\nТест 2:")
+    add_two_and_user_input()  # Ожидается ввод строки, например "abc"
+
+    print("\nТест 3:")
+    add_two_and_user_input()  # Ожидается ввод числа с плавающей точкой, например 3.14
+
+    print("\nТест 4:")
+    add_two_and_user_input()  # Ожидается ввод пустой строки или пробелов
+
+
+
+
+```
+### Результат.
+![image](https://github.com/user-attachments/assets/512951de-efc6-406d-b02f-9c8b05181d6f)
+
+
+## Выводы
+1.	Функция: add_two_and_user_input()запрашивает ввод у пользователя и пытается преобразовать его в число (тип float).
+2.	Обработка исключений: Если ввод невозможно преобразовать (например, если введена строка, которая не является числом), возникает ValueError, и выводится сообщение об ошибке.
+
+
+## Самостоятельная работа №4
+### Создайте собственный декор для двух любых вашими придуманными функциями. Декораторы, которые использовались ранее в работе нельзя воссоздавать. Результатом выполнения задачи будет класс декоратора, две как-то связанных с ним функций, скриншот с выполненной программой и подробные комментарии, которые будут описывать работу вашего кода.
+
+```python
+
+import time
+
+class TimerDecorator:
+    """
+    Декоратор для измерения времени выполнения функции. 
+    Сохраняет время начала выполнения перед вызовом функции, 
+    а затем вычисляет время после и выводит разницу.
+    """
+    
+    def __init__(self, func):
+        self.func = func
+
+    def __call__(self, *args, **kwargs):
+        start_time = time.time()  # Сохраняем время начала выполнения
+        result = self.func(*args, **kwargs)  # Вызываем декорируемую функцию
+        end_time = time.time()  # Сохраняем время после выполнения
+        duration = end_time - start_time  # Вычисляем время выполнения
+        print(f"Время выполнения функции '{self.func.__name__}': {duration:.4f} секунд")
+        return result
+
+@TimerDecorator
+def calculate_factorial(n):
+    """
+    Функция для вычисления факториала числа n.
+    Использует рекурсивный подход.
+    """
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * calculate_factorial(n - 1)
+
+@TimerDecorator
+def fibonacci(n):
+    """
+    Функция для вычисления n-го числа Фибоначчи.
+    Использует рекурсивный подход.
+    """
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+# Примеры вызова функций
+if __name__ == "__main__":
+    # Вычисляем факториал числа 5
+    print(f"Факториал 5: {calculate_factorial(5)}")
+
+    # Вычисляем 10-е число Фибоначчи
+    print(f"10-е число Фибоначчи: {fibonacci(10)}")
+
+
+
+```
+### Результат.
+![image](https://github.com/user-attachments/assets/38e83f7b-cf96-4f0d-9b06-8828e7a76e9a)
+
+
+## Выводы
+Эта программа наглядно демонстрирует использование пользовательского декоратора и позволяет измерять время выполнения различных функций.
+
+## Самостоятельная работа №5
+### Создайте собственное исключение, которое будет использоваться в двух любых фрагментах кода. Исключения, которые использовались ранее в работе нельзя воспроизводить. Результатом выполнения задачи будет класс исключения, код к которому в двух местах используется это исключение, скрипт консоли с выполненной программой и подробные комментарии, которые будут описывать работу вашего кода.
+
+```python
+
+class InvalidInputError(Exception):
+    """
+    Исключение, которое будет вызываться при 
+    недопустимом вводе данных в функции.
+    """
+    pass
+
+def calculate_factorial(n):
+    """
+    Функция для вычисления факториала числа n.
+    
+    Вызывает InvalidInputError, если n отрицательное.
+    """
+    if n < 0:
+        raise InvalidInputError(f"Факториал не определен для отрицательных чисел: {n}")
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * calculate_factorial(n - 1)
+
+def fibonacci(n):
+    """
+    Функция для вычисления n-го числа Фибоначчи.
+    
+    Вызывает InvalidInputError, если n отрицательное.
+    """
+    if n < 0:
+        raise InvalidInputError(f"Число Фибоначчи не определено для отрицательных индексов: {n}")
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+# Основной блок программы
+
+if __name__ == "__main__":
+    # Пример использования функции calculate_factorial
+    try:
+        num = int(input("Введите число для вычисления факториала: "))
+        result = calculate_factorial(num)
+        print(f"Факториал {num} = {result}")
+    except InvalidInputError as e:
+        print(f"Ошибка: {e}")
+
+    # Пример использования функции fibonacci
+    try:
+        index = int(input("Введите индекс для вычисления числа Фибоначчи: "))
+        result = fibonacci(index)
+        print(f"{index}-е число Фибоначчи = {result}")
+    except InvalidInputError as e:
+        print(f"Ошибка: {e}")
+
+
+
+```
+### Результат.
+![image](https://github.com/user-attachments/assets/51e3e274-08e3-4ddb-be4b-3e396f9df80c)
+
+
+## Выводы
+Я создадла собственное исключение InvalidInputError, которое будет возникать в следующих двух случаях:
+1.	Когда пользователь пытается передать некорректные данные в функцию для вычисления факториала (например, отрицательное число).
+2.	Когда пользователь пытается вычислить число Фибоначчи для отрицательного индекса.
+
+### Общие выводы 
+в этой лабораторной работе я разобралась в использовании декораторов, их функциях, случаях применения. Самостоятельно решила несколько задач с использованием различных декораторов 
   
 
 
